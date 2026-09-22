@@ -5,12 +5,12 @@
     $pass = "";
     $db = "mecanica";
 
-    $conn = new mysqli($host, $user, $pass, $db);
+    $conexao = new mysqli($host, $user, $pass, $db);
 
-    if ($conn->connect_error) {
-        die("Falha na conexão: " . $conn->connect_error);
+    if ($conexao->connect_error) {
+        die("Falha na conexão: " . $conexao->connect_error);
     } else {
         echo "Conexão bem-sucedida!";
     }
-    
+
 ?>
