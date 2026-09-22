@@ -10,11 +10,13 @@
         <div class="login-form">
             <h1>Bem-vindo ao Auto mecanica</h1>
             <form action="login/login.php" method="post">
-                <label for="email">Email:</label>
-                <input type="text" name="email" placeholder="Email">
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" placeholder="Nome">
+                <br></br>
 
                 <label for="senha">Senha:</label>
                 <input type="password" name="senha" placeholder="Senha">
+                <br></br>
 
                 <input type="submit" value="Entrar">
             </form>

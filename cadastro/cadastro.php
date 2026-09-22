@@ -12,12 +12,15 @@
             <form action="cadastro.php" method="post">
                 <label for="nome">Nome:</label>
                 <input type="text" name="nome" placeholder="Nome">
+                <br></br>
 
                 <label for="email">Email:</label>
                 <input type="text" name="email" placeholder="Email">
+                <br></br>
 
                 <label for="senha">Senha:</label>
                 <input type="password" name="senha" placeholder="Senha">
+                <br></br>
 
                 <input type="submit" value="Cadastrar">
             </form>
@@ -38,12 +41,13 @@
         // Hash da senha antes de armazenar no banco de dados
         $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
-        $sql = "INSERT INTO usuarios (nome, email, senha_hash) VALUES ('$nome', '$email', '$senha_hash')";
+        $sql = "INSERT INTO usuario (nome, email, senha_hash, created_at, update_at, active) 
+        VALUES ('$nome', '$email', '$senha_hash', NOW(), NOW(), 1)";
 
         if ($conexao->query($sql) === TRUE) {
             echo "Cadastro realizado com sucesso!";
             // Redirecionar para a página de login após o cadastro
-            header("Location: ../index.php");
+            header("Location: ../index.php", true, 301);
             exit();
         } else {
             echo "Erro ao cadastrar: " . $conexao->error;

@@ -1,22 +1,34 @@
 <?php 
-    include"../config/conexao.php";
+include "../config/conexao.php";
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nome = $_POST['nome'];
+    $senha = $_POST['senha'];
 
-        $sql = "SELECT * FROM usuarios WHERE email = '$email' AND senha_hash = '$senha'";
-        $result = $conexao->query($sql);
+    $sql = "SELECT * FROM usuario WHERE nome = '$nome'";
+    $resultado = $conexao->query($sql);
 
-        if ($result->num_rows > 0) {
-            // Login bem-sucedido
-            echo "Login bem-sucedido!";
-            // Redirecionar para a página principal ou painel do usuário
+    if ($resultado === false) {
+        die("Erro na consulta: " . $conexao->error);
+    }
+
+    if ($resultado->num_rows != 0) {
+
+        $row = $resultado->fetch_assoc();
+
+        if (password_verify($senha, $row['senha_hash'])) {
+
+            $conexao->close();
+
             header("Location: ../sistema/index.php");
             exit();
+
         } else {
-            // Login falhou
-            echo "Email ou senha incorretos.";
+            echo "Senha incorreta.";
         }
+
+    } else {
+        echo "Nome ou senha incorretos.";
     }
+}
 ?>
