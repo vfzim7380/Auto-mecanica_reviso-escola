@@ -1,5 +1,5 @@
 <?php 
-    include"../"
+    require_once"../config/conexao.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
