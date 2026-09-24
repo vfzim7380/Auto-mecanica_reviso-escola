@@ -1,5 +1,8 @@
 <?php 
-    require_once"../config/conexao.php"
+    session_start();
+    require_once"../config/conexao.php";
+
+    $id_usuario = $_SESSION['id_usuario'];
 ?>  
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -18,7 +21,7 @@
     <div class="container">
         <div class="cad-folder">
             <h1>Cadastrar OS</h1>
-            <form action="cad_os.php">
+            <form action="cad_os.php" method="POST">
                 <label for="status">Status: </label>
                 <select name="status" id="status">
                     <option value="aberta">Aberta</option>
@@ -78,3 +81,27 @@
     </div>
 </body>
 </html>
+
+<?php 
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        $status = $_POST['status'];
+        $valor = $_POST['valor'];
+        $entrada = $_POST['entrada'];
+        $saida = $_POST['saida'];
+        $agendamento = $_POST['agendamento'];
+        $carro = $_POST['carro'];
+
+        $sql = "INSERT INTO os (status, valor, data_saida, data_entrada, data_agendamento, carro_id_carro, id_usuario, create_at, update_at)
+        VALUES ('$status', '$valor', '$entrada', '$saida', '$agendamento', '$carro', '$id_usuario', NOW(), NOW())";
+
+        if($conexao->query($sql) === TRUE){
+            echo "Cadastro realizado com sucesso!";
+            // Redirecionar para a página de login após o cadastro
+            header("Location: ../sistema/index.php", true, 301);
+            exit();
+        } else {
+            echo "Erro ao cadastrar: " . $conexao->error;
+        }
+    }
+?>

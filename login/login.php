@@ -1,4 +1,7 @@
 <?php 
+
+session_start();
+
 include "../config/conexao.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -20,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $conexao->close();
 
-            header("Location: ../sistema/index.php");
+            header("Location: ../inicio/index.php");
             exit();
 
         } else {

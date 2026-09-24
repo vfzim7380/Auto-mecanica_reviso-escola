@@ -12,15 +12,16 @@
 
     <header class="navbar"> 
         <nav>
-            <a href="index.php">Inicio</a>
+            <a href="../inicio/index.php">Inicio</a>
+            <a href="../sistema/cadastro.php">Cadastros</a>
             <a href="../os/cad_os.php">Cadastrar OS</a>
         </nav>
     </header>
-    
+
     <div class="container">
         <div class="cad-folder">
             <h1>Cadastro de Cliente</h1>
-            <form action="../cad_cliente/cad_cliente.php" method="post">
+            <form action="../cliente/cad_cliente.php" method="post">
                 <label for="nome">Nome:</label>
                 <input type="text" name="nome" placeholder="Nome">
                 <br></br>
@@ -46,7 +47,7 @@
         </div>
         <div class="cad-folder">
             <h1>Cadastro carro</h1>
-            <form action="../cad_carro/cad_carro.php" method="post">
+            <form action="../carro/cad_carro.php" method="post">
 
                 <label for="cliente">Cliente:</label>
 
@@ -95,7 +96,7 @@
 
         <div class="cad-folder">
             <h1>Cadastrar Serviço</h1>
-            <form action="../cad_servico/cad_servico.php" method="POST">
+            <form action="../servico/cad_servico.php" method="POST">
                 <label for="nome">Nome: </label>
                 <input type="text" name="nome" id="nome" placeholder="Serviço">
                 <br></br>
