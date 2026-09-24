@@ -212,3 +212,26 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+CREATE VIEW vw_ordens_servico AS
+SELECT
+    os.id_os,
+    os.data_entrada,
+    os.data_saida,
+    os.data_agendamento,
+    os.status,
+    os.valor,
+    c.nome AS cliente_nome,
+    c.cpf AS cliente_cpf,
+    carro.placa,
+    carro.marca,
+    carro.modelo,
+    carro.ano,
+    u.nome AS usuario_nome
+FROM os
+INNER JOIN carro
+    ON carro.id_carro = os.carro_id_carro
+INNER JOIN cliente c
+    ON c.id_cliente = carro.id_cliente
+INNER JOIN usuario u
+    ON u.id_usuario = os.id_usuario;
