@@ -14,7 +14,7 @@
         <nav>
             <a href="../inicio/index.php">Inicio</a>
             <a href="../sistema/cadastro.php">Cadastros</a>
-            <a href="../os/cad_os.php">Cadastrar OS</a>
+            <a href="../os/os.php">Cadastrar OS</a>
         </nav>
     </header>
 

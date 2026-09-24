@@ -10,7 +10,7 @@
         <nav>
             <a href="../inicio/index.php">Inicio</a>
             <a href="../sistema/cadastro.php">Cadastros</a>
-            <a href="../os/cad_os.php">Ordem de Serviço</a>
+            <a href="../os/os.php">Ordem de Serviço</a>
         </nav>
     </header>
 
