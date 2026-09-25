@@ -1,0 +1,1 @@
+<?php require_once "../config/conexao.php"; $id=(int)($_GET["id"]??0); if($id<=0)die("Carro inválido."); $ok=$conexao->query("UPDATE carro SET active=0, update_at=NOW() WHERE id_carro=$id"); if(!$ok) die("Erro ao excluir: ".$conexao->error); header("Location: carro.php"); exit(); ?>

@@ -1,0 +1,1 @@
+<?php require_once "../config/conexao.php"; $id=(int)($_GET["id"]??0); if($id<=0)die("Cliente inválido."); $ok=$conexao->query("UPDATE cliente SET active=0, update_at=NOW() WHERE id_cliente=$id"); if(!$ok) die("Erro ao excluir: ".$conexao->error); header("Location: cliente.php"); exit(); ?>

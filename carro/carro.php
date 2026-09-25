@@ -5,8 +5,7 @@ $resultado = $conexao->query($sql);
 if (!$resultado) die("Erro na consulta: " . $conexao->error);
 ?>
 <!DOCTYPE html>
-<html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Carros</title>    <link rel="stylesheet" href="../css/style.css">
-</head>
+<html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Carros</title><link rel="stylesheet" href="../css/style.css"></head>
 <body>
 <header class="navbar">
     <nav>
@@ -18,11 +17,10 @@ if (!$resultado) die("Erro na consulta: " . $conexao->error);
         <a href="../os/os.php">Ordens de Serviço</a>
     </nav>
 </header>
-<a href="cad_carro.php">Cadastrar Carro</a>
-<h1>Carros</h1>
-<table border="1"><tr><th>ID</th><th>Placa</th><th>Marca</th><th>Modelo</th><th>Ano</th><th>Cor</th><th>Cliente</th></tr>
+<div class="page"><div class="page-header"><h1>Carros</h1><a class="button" href="cad_carro.php">Cadastrar Carro</a></div>
+<table border="1"><tr><th>ID</th><th>Placa</th><th>Marca</th><th>Modelo</th><th>Ano</th><th>Cor</th><th>Cliente</th><th>Ações</th></tr>
 <?php while ($carro=$resultado->fetch_assoc()): ?><tr>
 <td><?= $carro["id_carro"] ?></td><td><?= htmlspecialchars($carro["placa"]) ?></td><td><?= htmlspecialchars($carro["marca"]) ?></td>
 <td><?= htmlspecialchars($carro["modelo"]) ?></td><td><?= $carro["ano"] ?></td><td><?= htmlspecialchars($carro["cor"]) ?></td><td><?= htmlspecialchars($carro["cliente_nome"]) ?></td>
-</tr><?php endwhile; ?></table>
-</body></html>
+<td class="actions"><a href="edicao_carro.php?id=<?= $carro["id_carro"] ?>">Editar</a><a href="excluir_carro.php?id=<?= $carro["id_carro"] ?>" onclick="return confirm('Deseja excluir este carro?')">Excluir</a></td>
+</tr><?php endwhile; ?></table></div></body></html>

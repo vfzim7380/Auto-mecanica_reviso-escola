@@ -172,3 +172,54 @@ body > a {
     margin: 20px;
     font-weight: bold;
 }
+
+/* ===== CRUD ===== */
+.page {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.page h1 {
+    margin-left: 0;
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.page-header h1 {
+    margin: 0;
+}
+
+.page table {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.button,
+.actions a {
+    display: inline-block;
+    background: #e94f37;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-right: 5px;
+    text-decoration: none;
+}
+
+.button:hover,
+.actions a:hover {
+    background: #c73e28;
+    color: #fff;
+    text-decoration: none;
+}
+
+.actions {
+    white-space: nowrap;
+}
