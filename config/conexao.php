@@ -1,16 +1,14 @@
-<?php 
+<?php
+$host = "localhost";
+$user = "root";
+$pass = "";
+$db = "mecanica";
 
-    $host = "localhost";
-    $user = "root";
-    $pass = "";
-    $db = "mecanica";
+$conexao = new mysqli($host, $user, $pass, $db);
 
-    $conexao = new mysqli($host, $user, $pass, $db);
+if ($conexao->connect_error) {
+    die("Falha na conexão: " . $conexao->connect_error);
+}
 
-    if ($conexao->connect_error) {
-        die("Falha na conexão: " . $conexao->connect_error);
-    } else {
-        echo "Conexão bem-sucedida!";
-    }
-
+$conexao->set_charset("utf8mb4");
 ?>
