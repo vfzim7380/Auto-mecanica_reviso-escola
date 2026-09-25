@@ -23,7 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 $clientes = $conexao->query("SELECT id_cliente, nome FROM cliente WHERE active = 1 ORDER BY nome");
 ?>
 <!DOCTYPE html>
-<html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Cadastrar Carro</title></head>
+<html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Cadastrar Carro</title>    <link rel="stylesheet" href="../css/style.css">
+</head>
 <body>
 <header class="navbar"><nav><a href="../inicio/index.php">Início</a><a href="../cliente/cliente.php">Clientes</a><a href="carro.php">Carros</a><a href="../mecanico/mecanico.php">Mecânicos</a><a href="../servico/servico.php">Serviços</a><a href="../os/os.php">Ordens de Serviço</a></nav></header>
 <h1>Cadastrar Carro</h1>
